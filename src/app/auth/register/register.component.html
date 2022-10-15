@@ -1,0 +1,222 @@
+<h1 class="text-center mb-5">Register</h1>
+
+<form
+  [formGroup]="register"
+  (ngSubmit)="handleRegister()"
+  class="mb-5 border border-1 rounded-3 p-4 w-75 mx-auto"
+>
+  <!-- N a m e -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      aria-describedby="nameHelp"
+      name="name"
+      formControlName="name"
+    />
+
+    <!-- Validation -->
+    <div
+      *ngIf="
+        (formControls['name'].dirty || formControls['name'].touched) &&
+        !formControls['name'].valid
+      "
+    >
+      <!-- @ empty -->
+      <div
+        id="nameHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['name'].errors && formControls['name'].errors['required']
+        "
+      >
+        Input required
+      </div>
+    </div>
+  </div>
+
+  <!-- E m a i l -->
+  <div class="mb-3">
+    <label for="email" class="form-label">email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="emailHelp"
+      name="email"
+      formControlName="email"
+    />
+
+    <!-- Validation -->
+    <div
+      *ngIf="
+        (formControls['email'].dirty || formControls['email'].touched) &&
+        !formControls['email'].valid
+      "
+    >
+      <!-- @ empty -->
+      <div
+        id="emailHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['email'].errors &&
+          formControls['email'].errors['required']
+        "
+      >
+        Input required
+      </div>
+      <!-- @ not valid -->
+      <div
+        id="emailHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['email'].errors &&
+          formControls['email'].errors['pattern']
+        "
+      >
+        Invalid Input
+      </div>
+    </div>
+  </div>
+
+  <!-- U s e r   n a m e -->
+  <div class="mb-3">
+    <label for="username" class="form-label"> User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      aria-describedby="usernameHelp"
+      name="username"
+      formControlName="username"
+    />
+
+    <!-- Validation -->
+    <div
+      *ngIf="
+        (formControls['username'].dirty || formControls['username'].touched) &&
+        !formControls['username'].valid
+      "
+    >
+      <!-- @ empty -->
+      <div
+        id="usernameHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['username'].errors &&
+          formControls['username'].errors['required']
+        "
+      >
+        Input required
+      </div>
+      <!-- @ not valid -->
+      <div
+        id="usernameHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['username'].errors &&
+          formControls['username'].errors['pattern']
+        "
+      >
+        Invalid Input
+      </div>
+    </div>
+  </div>
+
+  <!-- P a s s w o r d -->
+  <div class="mb-3">
+    <label for="username" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="passwordHelp"
+      name="password"
+      formControlName="password"
+    />
+
+    <!-- Validation -->
+    <div
+      *ngIf="
+        (formControls['password'].dirty || formControls['password'].touched) &&
+        !formControls['password'].valid
+      "
+    >
+      <!-- empty -->
+      <div
+        id="passwordHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['password'].errors &&
+          formControls['password'].errors['required']
+        "
+      >
+        Input required
+      </div>
+      <!-- not valid -->
+      <div
+        id="passwordHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['password'].errors &&
+          formControls['password'].errors['pattern']
+        "
+      >
+        Invalid Input
+      </div>
+    </div>
+  </div>
+
+  <!-- C o n f i r m   p a s s w o r d -->
+  <div class="mb-3">
+    <label for="username" class="form-label">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="confirm"
+      aria-describedby="confirmHelp"
+      name="confirm"
+      formControlName="confirm"
+    />
+    <!-- Validation -->
+    <div
+      *ngIf="
+        (formControls['confirm'].dirty || formControls['confirm'].touched) &&
+        !formControls['password'].valid
+      "
+    >
+      <!-- @ empty -->
+      <div
+        id="confirmHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['confirm'].errors &&
+          formControls['confirm'].errors['required']
+        "
+      >
+        Input required
+      </div>
+      <!-- @ not valid -->
+      <div
+        id="confirmHelp"
+        class="form-text text-danger"
+        *ngIf="
+          formControls['confirm'].value !== formControls['password'].value &&
+          formControls['confirm'].value
+        "
+      >
+        Not matched
+      </div>
+    </div>
+  </div>
+
+  <p>Optional* <a routerLink="/address">Add an address or more!</a></p>
+
+  <button type="submit" class="btn btn-success mt-3">Register</button>
+</form>
+
+<p class="fw-bold text-center">
+  Already have account? <a routerLink="/login">Log-in</a>
+</p>

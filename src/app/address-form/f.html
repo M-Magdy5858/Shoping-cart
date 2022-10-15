@@ -1,0 +1,35 @@
+<!--  -->
+
+<!-- G a r b a g e   code -->
+
+<!--  -->
+
+<!-- validation -->
+<div
+  *ngIf="
+           (addressControls[i].controls['district'].dirty || addressControls[i].controls['district'].touched)
+          "
+>
+  <!-- empty -->
+  <div
+    id="districtHelp"
+    class="form-text text-danger"
+    *ngIf="
+              addressControls[i]['controls']['district'].errors &&
+              addressControls[i]['controls']['district'].errors['required']
+            "
+  >
+    Input required
+  </div>
+  <!-- not valid -->
+  <div
+    id="districtHelp"
+    class="form-text text-danger"
+    *ngIf="
+              addressControls[i]['controls']['district'].errors &&
+              addressControls[i]['controls']['district'].errors['pattern']
+            "
+  >
+    Invalid Input
+  </div>
+</div>

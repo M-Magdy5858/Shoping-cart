@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-8">
+    <h2>{{ details.name }}</h2>
+    <strong> {{ details.price | currency: "EGP":"EGP":"1.2":"fr" }}</strong>
+    <div *ngIf="details.count > 0; then inStock; else outStock"></div>
+    <ng-template #inStock>
+      <p class="text-success">In Stock : {{ details.count }}</p>
+    </ng-template>
+    <ng-template #outStock>
+      <p class="text-danger">Out of Stock</p>
+    </ng-template>
+
+    <!-- <P class="text-muted"
+      >Date : {{ details.createdAt | date: "MMMM YYYY" }}
+    </P> -->
+    <span> <strong>Rate: </strong> {{ details.rate }} of 10</span>
+    <hr />
+    <p class="mb-5"><strong>Description: </strong> {{ details.description }}</p>
+
+    <div>
+      <h6 class="mb-3">Reviews :</h6>
+      <ul *ngFor="let review of details.reviews; let i = index">
+        <li>{{ review }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div>
+      <img [src]="details.image" alt="" class="w-100" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.icon img{
+  width: 1.3rem;
+  opacity: 0.6;
+}
+.icon span{
+  font-size: xx-small;
+  top: 0px;
+  right: 4px;
+}
+.icon img{
+  transition: .2s all ease;
+}
+.icon:hover img{
+  rotate: -15deg;
+  scale: 1.2;
+  opacity: 1;
+}
+
+a.active img{
+  opacity: 1;
+}

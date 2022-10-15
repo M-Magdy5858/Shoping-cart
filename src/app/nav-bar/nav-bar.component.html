@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-light mb-3 fixed-top p-0">
+  <div class="container">
+    <a class="navbar-brand" routerLink=""> <h3>S H O P</h3> </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item icon">
+          <a
+            class="nav-link text-end position-relative"
+            routerLink="/cart"
+            routerLinkActive="active"
+          >
+            <img src="../../assets/nav-cart-icon.svg" alt="" />
+            <div *ngIf="cartCount">
+              <span
+                class="bg-danger rounded-circle text-light fw-bold p-1 position-absolute"
+              >
+                {{ cartCount }}
+              </span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active"
+            >Log-in</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

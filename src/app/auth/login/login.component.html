@@ -1,0 +1,92 @@
+<h1 class="text-center mb-5">Log in</h1>
+
+<form
+  #loginForm="ngForm"
+  (ngSubmit)="handleLogin(loginForm)"
+  class="mb-5 border border-1 rounded-3 p-4 w-50 mx-auto"
+>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="emailHelp"
+      name="email"
+      #email="ngModel"
+      ngModel
+      required
+    />
+
+    <!-- validation -->
+    <div
+      *ngIf="
+        (email.dirty || email.touched || loginForm.submitted) && !email.valid
+      "
+    >
+      <!-- empty -->
+      <div
+        id="emailHelp"
+        class="form-text text-danger"
+        *ngIf="email.errors && email.errors['required']"
+      >
+        Input required
+      </div>
+      <!-- not valid -->
+      <div
+        id="emailHelp"
+        class="form-text text-danger"
+        *ngIf="email.errors && email.errors['pattern']"
+      >
+        Not valid Email
+      </div>
+    </div>
+  </div>
+
+  <!-- password -->
+  <div class="mb-5">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="passwordHelp"
+      name="password"
+      #password="ngModel"
+      ngModel
+      required
+    />
+
+    <!-- validation -->
+    <div
+      *ngIf="
+        (password.dirty || password.touched || loginForm.submitted) &&
+        !password.valid
+      "
+    >
+      <div
+        id="passwordHelp"
+        class="form-text text-danger"
+        *ngIf="password.errors && password.errors['required']"
+      >
+        Input required
+      </div>
+    </div>
+  </div>
+
+  <div class="d-grid">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loginForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+<p class="fw-bold text-center">
+  Don't have account? <a routerLink="/register">Register</a>
+</p>
+

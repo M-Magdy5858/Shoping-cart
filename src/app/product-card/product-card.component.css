@@ -1,0 +1,15 @@
+.card{
+  cursor: pointer;
+  box-shadow: 0px 5px 0px #666666;
+}
+.card:hover{
+  box-shadow: 0px 10px 0px #666666;
+  bottom: 5px;
+}
+.star img{
+  transition: 0.5s all cubic-bezier(.17,.67,.58,1.54);
+}
+.star:hover img{
+  rotate: 30deg;
+  scale: 1.3;
+}

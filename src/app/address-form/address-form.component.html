@@ -1,0 +1,83 @@
+<div class="border border-1 rounded-3 p-5 w-100">
+  <small> **Testing Form Arrays</small>
+  <div class="d-flex justify-content-between mb-5">
+    <h2>Address </h2>
+   
+    <button type="button" class="btn btn-outline-dark" (click)="addAddress()">
+      + Add address
+    </button>
+  </div>
+
+  <form [formGroup]="testForm">
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <div *ngFor="let address of addressControls; let i = index">
+      <form [formGroup]="address" class="row mb-3">
+        <!-- district -->
+        <div class="col-2 pe-0">
+          <input
+            type="text"
+            class="form-control"
+            id="district"
+            aria-describedby="districtHelp"
+            placeholder="District"
+          />
+
+
+          <!-- <div *ngIf="address">
+            <small class="text-danger" *ngIf="address.get('district').errors?.required">
+              Input required
+            </small>
+          </div> -->
+
+
+        </div>
+        
+        <!-- Street -->
+        <div class="col-2 pe-0">
+          <input
+            type="text"
+            class="form-control"
+            id="Street"
+            aria-describedby="StreetHelp"
+            placeholder="Street"
+          />
+        </div>
+
+        <!-- Country -->
+        <div class="col-2 pe-0">
+          <input
+            type="text"
+            class="form-control"
+            id="country"
+            aria-describedby="countryHelp"
+            placeholder="country"
+          />
+        </div>
+
+        <!-- district -->
+        <div class="col-2 pe-0">
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            aria-describedby="cityHelp"
+            placeholder="city"
+          />
+        </div>
+
+        <!-- Delete -->
+        <div class="col-4 text-end">
+          <button
+            type="button"
+            class="btn btn-outline-danger ms-auto"
+            (click)="delete(i)"
+          >
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+  </form>
+</div>
